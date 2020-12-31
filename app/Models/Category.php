@@ -29,7 +29,7 @@ class Category extends Model
 
 
     public $table = 'categories';
-    
+    public $timestamps = false;
 
 
 
@@ -44,7 +44,7 @@ class Category extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'name' => 'integer'
+        'name' => 'string'
     ];
 
     /**
@@ -53,7 +53,7 @@ class Category extends Model
      * @var array
      */
     public static $rules = [
-        'name' => 'equired|max:50|unique:categories'
+        'name' => 'required|max:50|unique:categories'
     ];
 
     /**

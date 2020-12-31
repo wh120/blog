@@ -79,10 +79,11 @@ class CategoryAPIController extends AppBaseController
      *      description="Store Category",
      *      produces={"application/json"},
      *      @SWG\Parameter(
-     *          name="body",
-     *          in="body",
+     *          name="name",
+     *          in="formData",
+     *          type="string" ,
      *          description="Category that should be stored",
-     *          required=false,
+     *          required=true,
      *          @SWG\Schema(ref="#/definitions/Category")
      *      ),
      *      @SWG\Response(
@@ -110,6 +111,7 @@ class CategoryAPIController extends AppBaseController
     {
         $input = $request->all();
 
+      //  return  $input;
         $category = $this->categoryRepository->create($input);
 
         return $this->sendResponse($category->toArray(), 'Category saved successfully');
@@ -184,8 +186,9 @@ class CategoryAPIController extends AppBaseController
      *          in="path"
      *      ),
      *      @SWG\Parameter(
-     *          name="body",
-     *          in="body",
+     *          name="name",
+     *          type = "string",
+     *          in="formData",
      *          description="Category that should be updated",
      *          required=false,
      *          @SWG\Schema(ref="#/definitions/Category")

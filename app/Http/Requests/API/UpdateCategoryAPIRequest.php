@@ -25,7 +25,7 @@ class UpdateCategoryAPIRequest extends APIRequest
     public function rules()
     {
         $rules = Category::$rules;
-        $rules['name'] = $rules['name'].",".$this->route("category");
+        $rules['name'] = $rules['name'].",id";//.$this->route("category");
         return $rules;
     }
 }

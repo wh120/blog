@@ -50,13 +50,14 @@
                 ],
                 "parameters": [
                     {
-                        "name": "body",
-                        "in": "body",
+                        "name": "name",
+                        "in": "formData",
                         "description": "Category that should be stored",
-                        "required": false,
+                        "required": true,
                         "schema": {
                             "$ref": "#/definitions/Category"
-                        }
+                        },
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -137,13 +138,14 @@
                         "type": "integer"
                     },
                     {
-                        "name": "body",
-                        "in": "body",
+                        "name": "name",
+                        "in": "formData",
                         "description": "Category that should be updated",
                         "required": false,
                         "schema": {
                             "$ref": "#/definitions/Category"
-                        }
+                        },
+                        "type": "string"
                     }
                 ],
                 "responses": {

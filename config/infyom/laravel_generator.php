@@ -111,7 +111,7 @@ return [
     |
     */
 
-    'api_prefix'  => 'api',
+    'api_prefix'  => 'api/v1',
 
     'api_version' => 'v1',
 
