@@ -26,6 +26,7 @@ use Eloquent as Model;
  */
 class Category extends Model
 {
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
 
 
     public $table = 'categories';
