@@ -96,7 +96,7 @@ class Article extends Model
      **/
     public function categories()
     {
-        return $this->belongsToMany(\App\Models\Category::class, '');
+        return $this->belongsToMany(\App\Models\Category::class);
     }
 
     /**
@@ -104,7 +104,7 @@ class Article extends Model
      **/
     public function tags()
     {
-        return $this->belongsToMany(\App\Models\Tag::class, '');
+        return $this->belongsToMany(\App\Models\Tag::class );
     }
 
     /**
