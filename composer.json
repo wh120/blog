@@ -9,21 +9,22 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "appointer/swaggervel": "dev-master",
+        "backpack/crud": "4.1.*",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "infyomlabs/adminlte-templates": "^1.0",
+        "infyomlabs/generator-builder": "dev-master",
         "infyomlabs/laravel-generator": "8.0.x-dev",
+        "infyomlabs/swagger-generator": "dev-master",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
         "laravel/ui": "3.0",
-        "laravelcollective/html": "^6.2",
-        "infyomlabs/generator-builder": "dev-master",
-        "appointer/swaggervel": "dev-master",
-        "infyomlabs/swagger-generator": "dev-master"
-
+        "laravelcollective/html": "^6.2"
     },
     "require-dev": {
+        "backpack/generators": "^3.1",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
         "laravel/sail": "^0.0.5",
