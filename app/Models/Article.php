@@ -44,11 +44,33 @@ use Eloquent as Model;
  *          type="string"
  *      ),
  *      @SWG\Property(
- *          property="status_id",
- *          description="status_id",
- *          type="integer",
- *          format="int32"
- *      )
+ *          property="status_name",
+ *          description="status name",
+ *          type="string",
+ *         enum={"draft", "publish", "schedule"}
+ *      ),
+ *      @SWG\Property(
+ *          property="tags",
+ *          description="tags",
+ *          type="array",
+ *         @SWG\Items(
+ *                      ref="#/definitions/Tag"            
+ *                      ),
+ *       example={"ball" , "cool"}
+ *              
+ *          
+ *      ),
+ *      @SWG\Property(
+ *          property="categories",
+ *          description="categories",
+ *          type="array",
+ *         @SWG\Items(
+ *                      ref="#/definitions/Category"            
+ *                      ),
+ *          example={"sport" }
+ *         
+ *          
+ *      ),
  * )
  */
 class Article extends Model
@@ -76,7 +98,7 @@ class Article extends Model
         'id' => 'integer',
         'title' => 'string',
         'image' => 'string',
-        'status_id' => 'integer'
+        'status_name' => 'string'
     ];
 
     /**
@@ -88,7 +110,8 @@ class Article extends Model
         'title' => 'required',
         'content' => 'required',
         'image' => 'nullable',
-        'status_id' => 'required'
+       // 'status_name' => 'required',
+        'status_name' => 'exists:App\Models\Status,name'
     ];
 
     /**
@@ -96,7 +119,7 @@ class Article extends Model
      **/
     public function categories()
     {
-        return $this->belongsToMany(\App\Models\Category::class);
+        return $this->belongsToMany(\App\Models\Category::class , 'articles_categories');
     }
 
     /**
@@ -104,7 +127,7 @@ class Article extends Model
      **/
     public function tags()
     {
-        return $this->belongsToMany(\App\Models\Tag::class );
+        return $this->belongsToMany(\App\Models\Tag::class ,'articles_tags');
     }
 
     /**

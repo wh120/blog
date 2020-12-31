@@ -61,6 +61,6 @@ class Tag extends Model
      **/
     public function articles()
     {
-        return $this->belongsToMany(\App\Models\Article::class);
+        return $this->belongsToMany(\App\Models\Article::class , 'articles_tags');
     }
 }

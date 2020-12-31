@@ -5,6 +5,9 @@ namespace App\Http\Controllers\API;
 use App\Http\Requests\API\CreateArticleAPIRequest;
 use App\Http\Requests\API\UpdateArticleAPIRequest;
 use App\Models\Article;
+use App\Models\Tag;
+use App\Models\Category;
+use App\Models\Status;
 use App\Repositories\ArticleRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
@@ -109,9 +112,34 @@ class ArticleAPIController extends AppBaseController
     public function store(CreateArticleAPIRequest $request)
     {
         $input = $request->all();
+        $tags = $input['tags'];
+        $categories = $input['categories'];
+        $status_name = $input['status_name'];
+        
+        $tagsModels=[];
+        foreach ($tags as $tag) {
+            $tagsModels[] = Tag::firstOrCreate([
+                'name' => $tag
+            ]);
+        }
 
+        $categoriesModels=[];
+        foreach ($categories as $category) {
+            $categoriesModels[] = Category::firstOrCreate([
+                'name' => $category
+            ]);
+        }
+
+        $status = Status::where([
+            'name' => $status_name
+        ])->first();
+           
+        $input['status_id'] = $status->id;
         $article = $this->articleRepository->create($input);
-
+        $article->categories()->saveMany($categoriesModels);
+        $article->tags()->saveMany($tagsModels);
+        $article->load(['tags' , 'categories' ]);
+        
         return $this->sendResponse($article->toArray(), 'Article saved successfully');
     }
 
@@ -161,7 +189,8 @@ class ArticleAPIController extends AppBaseController
         if (empty($article)) {
             return $this->sendError('Article not found');
         }
-
+        $article->load(['tags' , 'categories' ]);
+        
         return $this->sendResponse($article->toArray(), 'Article retrieved successfully');
     }
 

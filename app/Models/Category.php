@@ -19,8 +19,8 @@ use Eloquent as Model;
  *      @SWG\Property(
  *          property="name",
  *          description="name",
- *          type="integer",
- *          format="int32"
+ *          type="string",
+ *        
  *      )
  * )
  */
@@ -61,6 +61,6 @@ class Category extends Model
      **/
     public function articles()
     {
-        return $this->belongsToMany(\App\Models\Article::class);
+        return $this->belongsToMany(\App\Models\Article::class , 'articles_categories');
     }
 }
