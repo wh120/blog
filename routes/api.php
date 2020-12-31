@@ -24,3 +24,5 @@ Route::resource('categories', CategoryAPIController::class);
 Route::resource('tags', TagAPIController::class);
 
 Route::resource('statuses', StatusAPIController::class);
+
+Route::resource('articles',ArticleAPIController::class);
