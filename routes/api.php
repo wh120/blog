@@ -20,3 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // Route::resource('categories', App\Http\Controllers\API\CategoryAPIController::class);
 Route::resource('categories', CategoryAPIController::class);
+
+Route::resource('tags', TagAPIController::class);
