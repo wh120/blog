@@ -75,6 +75,7 @@ use Eloquent as Model;
  */
 class Article extends Model
 {
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
 
 
     public $table = 'articles';
