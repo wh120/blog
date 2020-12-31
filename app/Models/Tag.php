@@ -25,6 +25,7 @@ use Eloquent as Model;
  */
 class Tag extends Model
 {
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
 
 
     public $table = 'tags';
