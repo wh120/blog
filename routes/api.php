@@ -22,3 +22,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::resource('categories', CategoryAPIController::class);
 
 Route::resource('tags', TagAPIController::class);
+
+Route::resource('statuses', StatusAPIController::class);
