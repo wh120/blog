@@ -18,6 +18,8 @@ class CategoryCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\InlineCreateOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.

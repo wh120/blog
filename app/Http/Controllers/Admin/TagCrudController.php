@@ -19,6 +19,11 @@ class TagCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
+    use \Backpack\CRUD\app\Http\Controllers\Operations\InlineCreateOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
+
+
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
      * 
@@ -30,6 +35,8 @@ class TagCrudController extends CrudController
         CRUD::setRoute(config('backpack.base.route_prefix') . '/tag');
         CRUD::setEntityNameStrings('tag', 'tags');
     }
+
+    
 
     /**
      * Define what happens when the List operation is loaded.
