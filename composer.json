@@ -9,7 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
-        "appointer/swaggervel": "dev-master",
+        "appointer/swaggervel": "^2.5",
         "backpack/crud": "4.1.*",
         "backpack/permissionmanager": "^6.0",
         "fideloper/proxy": "^4.4",
